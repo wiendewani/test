@@ -1,15 +1,20 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:ordo/theme/PaletteColor.dart';
 import 'package:ordo/theme/SpacingDimens.dart';
 import 'package:ordo/theme/TypographyStyle.dart';
 
 class ContentSection extends StatelessWidget {
-  Widget _item() {
+
+
+
+  Widget _item(String photo) {
     return Container(
       margin: EdgeInsets.all(1.0),
       child: Stack(
         children: [
-          Image.asset("assets/Images/flower_1.png"),
+          Image.asset(photo, width: double.infinity,),
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
@@ -56,12 +61,31 @@ class ContentSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    List photo = [
+      "assets/Images/flower_1.png",
+      "assets/Images/flower_2.png",
+      "assets/Images/flower_3.png",
+      "assets/Images/flower_1.png",
+      "assets/Images/flower_3.png",
+      "assets/Images/flower_2.png",
+      "assets/Images/flower_3.png",
+      "assets/Images/flower_1.png",
+      "assets/Images/flower_2.png",
+      "assets/Images/flower_2.png",
+      "assets/Images/flower_3.png",
+      "assets/Images/flower_1.png",
+
+    ];
+    
     return Container(
       child: GridView.count(
         physics: ScrollPhysics(),
         crossAxisCount: 3,
         shrinkWrap: true,
-        children: [_item(),_item(),_item(),_item(),_item(),_item(),_item(),_item(),_item(),_item(),_item(),_item()],
+        children: List.generate(12, (index) {
+          return _item(photo[index]);
+        })
       ),
     );
   }

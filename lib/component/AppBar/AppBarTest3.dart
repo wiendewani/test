@@ -5,17 +5,19 @@ import 'package:ordo/theme/PaletteColor.dart';
 import 'package:ordo/theme/SpacingDimens.dart';
 import 'package:ordo/theme/TypographyStyle.dart';
 
-class AppBarBack extends StatelessWidget implements PreferredSizeWidget {
+class AppBarTest3 extends StatelessWidget implements PreferredSizeWidget {
   final BuildContext ctx;
   final String title;
-  final IconData icon;
+  final IconData icon1;
+  final IconData icon2;
   final Color colorPrima;
   final Color colorSecond;
 
-  AppBarBack({
+  AppBarTest3({
     @required this.ctx,
     @required this.title,
-    @required this.icon,
+    @required this.icon1,
+    @required this.icon2,
     @required this.colorPrima,
     @required this.colorSecond,
   });
@@ -39,7 +41,7 @@ class AppBarBack extends StatelessWidget implements PreferredSizeWidget {
       leading: Container(
         padding: EdgeInsets.only(left: SpacingDimens.spacing28),
         child: ElevatedButton(
-          onPressed: () => Navigator.of(ctx).pop(),
+          onPressed: ()  => Navigator.of(ctx).pop(),
           child: Icon(
             Icons.arrow_back_rounded,
             color: Colors.white,
@@ -61,7 +63,23 @@ class AppBarBack extends StatelessWidget implements PreferredSizeWidget {
             ),
             child: RadiantGradientMask(
               child: Icon(
-                icon,
+                icon1,
+                size: 20,
+              ),
+              color_end: colorPrima,
+              color_star: colorSecond,
+            ),
+          ),
+        ),
+        GestureDetector(
+          onTap: () {},
+          child: Padding(
+            padding: const EdgeInsets.only(
+              right: SpacingDimens.spacing16,
+            ),
+            child: RadiantGradientMask(
+              child: Icon(
+                icon2,
                 size: 20,
               ),
               color_end: colorPrima,

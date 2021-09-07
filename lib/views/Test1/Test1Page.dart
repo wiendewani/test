@@ -13,7 +13,6 @@ class Test1Page extends StatefulWidget {
 }
 
 class _Test1PageState extends State<Test1Page> {
-  int currentTab = 0;
   int _selectedIndex = 0;
 
   Widget _bottomNav() {
@@ -66,11 +65,6 @@ class _Test1PageState extends State<Test1Page> {
     );
   }
 
-  void _onCurrentTab(int index) {
-    setState(() {
-      currentTab = index;
-    });
-  }
 
   Widget _toUp() {
     return Center(
@@ -110,9 +104,14 @@ class _Test1PageState extends State<Test1Page> {
           ),
           Container(
             width: MediaQuery.of(context).size.width,
-            child: FittedBox(
-              child: Image.asset('assets/Images/map.png'),
-              fit: BoxFit.fill,
+            // child: Image.asset('assets/Images/map.png'),
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(
+                    'assets/Images/map.png'),
+                fit: BoxFit.fill,
+              ),
+
             ),
           ),
           DraggableScrollableSheet(

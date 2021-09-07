@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ordo/component/AppBar/AppBarBack.dart';
+import 'package:ordo/component/AppBar/AppBarTest3.dart';
 import 'package:ordo/theme/IconComponent.dart';
 import 'package:ordo/theme/PaletteColor.dart';
 import 'package:ordo/theme/SpacingDimens.dart';
@@ -15,12 +16,46 @@ class Test3Page extends StatefulWidget {
 }
 
 class _Test3PageState extends State<Test3Page> {
-  int currentTab = 0;
 
-  void _onCurrentTab(int index) {
-    setState(() {
-      currentTab = index;
-    });
+  int _selectedIndex = 0;
+
+  Widget _bottomNav() {
+    return BottomNavigationBar(
+      selectedFontSize: 0,
+      backgroundColor: Colors.white,
+      currentIndex: _selectedIndex,
+      // this will be set when a new tab is tapped
+      showUnselectedLabels: true,
+      onTap: (int index) {
+        setState(() {
+          _selectedIndex = index;
+        });
+        switch (index) {
+          case 0:
+            break;
+          case 1:
+            break;
+          case 2:
+            break;
+        }
+      },
+      type: BottomNavigationBarType.fixed,
+      items: [
+
+        BottomNavigationBarItem(
+            icon: Icon(IconComponent.nav_home,
+                color: PaletteColor.grey60, size: SpacingDimens.spacing20),
+            label: ""),
+        BottomNavigationBarItem(
+            icon: Icon(IconComponent.nav_list,
+                color: PaletteColor.grey60, size: SpacingDimens.spacing20),
+            label: ""),
+        BottomNavigationBarItem(
+            icon: Icon(IconComponent.history_time,
+                color: PaletteColor.grey60, size: SpacingDimens.spacing20),
+            label: ""),
+      ],
+    );
   }
 
   Widget _buttonComplain() {
@@ -63,32 +98,14 @@ class _Test3PageState extends State<Test3Page> {
 
   @override
   Widget build(BuildContext context) {
-    final _bottomNavBarItems = <BottomNavigationBarItem>[
-      BottomNavigationBarItem(
-          icon: Icon(
-            IconComponent.nav_list,
-            color: PaletteColor.grey60,
-            size: SpacingDimens.spacing20,
-          ),
-          label: ""),
-      BottomNavigationBarItem(
-          icon: Icon(IconComponent.nav_transaction,
-              color: PaletteColor.grey60, size: SpacingDimens.spacing20),
-          label: ""),
-      BottomNavigationBarItem(
-          icon: Icon(IconComponent.nav_home,
-              color: PaletteColor.grey60, size: SpacingDimens.spacing20),
-          label: ""),
-    ];
 
-    final _bottomNavBar = BottomNavigationBar(
-        items: _bottomNavBarItems,
-        currentIndex: currentTab,
-        onTap: _onCurrentTab);
-
-    var appBar = AppBarBack(
+    var appBar = AppBarTest3(
       ctx: context,
-      title: "Portofolio Vendor",
+      title: "FINANSIAL",
+      colorPrima: PaletteColor.test3_primary_blue,
+      colorSecond: PaletteColor.test3_primary_blue80,
+      icon1: IconComponent.chart,
+      icon2: IconComponent.notification_bold,
     );
 
     return Scaffold(
@@ -117,7 +134,7 @@ class _Test3PageState extends State<Test3Page> {
           _buttonComplain()
         ],
       ),
-      bottomNavigationBar: _bottomNavBar,
+      bottomNavigationBar: _bottomNav(),
     );
   }
 }
