@@ -7,7 +7,7 @@ class OrderSection extends StatelessWidget {
   String lorem =
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo";
 
-  Widget OrderItem() {
+  Widget orderItem() {
     return Column(
       children: [
         Container(
@@ -85,7 +85,7 @@ class OrderSection extends StatelessWidget {
     );
   }
 
-  Widget _OrderNote() {
+  Widget _orderNote() {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: SpacingDimens.spacing16),
       child: Column(
@@ -121,9 +121,9 @@ class OrderSection extends StatelessWidget {
           SizedBox(
             height: SpacingDimens.spacing20,
           ),
-          OrderItem(),
-          OrderItem(),
-          _OrderNote()
+          orderItem(),
+          orderItem(),
+          _orderNote()
         ],
       ),
     );

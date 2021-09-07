@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:ordo/component/AppBar/RadiantGradientMask.dart';
-import 'package:ordo/theme/IconComponent.dart';
 import 'package:ordo/theme/PaletteColor.dart';
 import 'package:ordo/theme/SpacingDimens.dart';
 import 'package:ordo/theme/TypographyStyle.dart';
@@ -64,8 +63,8 @@ class AppBarBack extends StatelessWidget implements PreferredSizeWidget {
                 icon,
                 size: 20,
               ),
-              color_end: colorPrima,
-              color_star: colorSecond,
+              colorEnd:  colorPrima,
+              colorStart: colorSecond,
             ),
           ),
         )
