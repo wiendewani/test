@@ -26,6 +26,11 @@ class PaletteColor{
   static const Color test1_primary80 = Color(0xFF92D274);
   static const Color test1_primarybg = Color(0xFFFCF8F8);
 
+/* Primary Color Test 2 */
+  static const Color test2_content = Color(0xFF202237);
+  static const Color test2_content80 = Color(0xFF595FA0);
+
+
 /* Primary Color Test 3 */
 
   static const Color test3_primary_orange = Color(0xFFFF9A00);

@@ -13,5 +13,7 @@ class SpacingDimens {
   static const spacing48 = spacing4 * 12;
   static const spacing52 = spacing4 * 13;
   static const spacing64 = spacing4 * 16;
+  static const spacing72 = spacing4 * 18;
+  static const spacing80 = spacing4 * 20;
   static const spacing88 = spacing4 * 22;
 }
