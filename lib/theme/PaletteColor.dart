@@ -12,7 +12,7 @@ class PaletteColor{
   static const Color text = Color(0xFF262626);
   static const Color grey = Color(0xFF1A1A1A);
   static const Color grey80 = Color(0xFF5D5D5D);
-  static const Color grey60 = Color(0xFFA0A0A0);
+  static const Color grey60 = Color(0xFFC6C4C4);
   static const Color grey40 = Color(0xFFE4E4E4);
 
   /* Semantic Color */

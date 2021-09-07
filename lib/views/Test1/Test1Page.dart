@@ -14,6 +14,57 @@ class Test1Page extends StatefulWidget {
 
 class _Test1PageState extends State<Test1Page> {
   int currentTab = 0;
+  int _selectedIndex = 0;
+
+  Widget _bottomNav() {
+    return BottomNavigationBar(
+      selectedFontSize: 0,
+      backgroundColor: Colors.white,
+      currentIndex: _selectedIndex,
+      // this will be set when a new tab is tapped
+      showUnselectedLabels: true,
+      onTap: (int index) {
+        setState(() {
+          _selectedIndex = index;
+        });
+        switch (index) {
+          case 0:
+            break;
+          case 1:
+            break;
+          case 2:
+            break;
+          case 3:
+            break;
+          case 4:
+            break;
+        }
+      },
+      type: BottomNavigationBarType.fixed,
+      items: [
+        BottomNavigationBarItem(
+            icon: Icon(IconComponent.nav_list,
+                color: PaletteColor.grey60, size: SpacingDimens.spacing20),
+            label: ""),
+        BottomNavigationBarItem(
+            icon: Icon(IconComponent.nav_transaction,
+                color: PaletteColor.grey60, size: SpacingDimens.spacing20),
+            label: ""),
+        BottomNavigationBarItem(
+            icon: Icon(IconComponent.nav_home,
+                color: PaletteColor.grey60, size: SpacingDimens.spacing20),
+            label: ""),
+        BottomNavigationBarItem(
+            icon: Icon(IconComponent.nav_notification,
+                color: PaletteColor.grey60, size: SpacingDimens.spacing20),
+            label: ""),
+        BottomNavigationBarItem(
+            icon: Icon(IconComponent.nav_profile,
+                color: PaletteColor.grey60, size: SpacingDimens.spacing20),
+            label: ""),
+      ],
+    );
+  }
 
   void _onCurrentTab(int index) {
     setState(() {
@@ -35,40 +86,14 @@ class _Test1PageState extends State<Test1Page> {
 
   @override
   Widget build(BuildContext context) {
-    final _bottomNavBarItems = <BottomNavigationBarItem>[
-      BottomNavigationBarItem(
-          icon: Icon(
-            IconComponent.nav_list,
-            color: PaletteColor.grey60,
-            size: SpacingDimens.spacing20,
-          ),
-          label: ""),
-      BottomNavigationBarItem(
-          icon: Icon(IconComponent.nav_transaction,
-              color: PaletteColor.grey60, size: SpacingDimens.spacing20),
-          label: ""),
-      BottomNavigationBarItem(
-          icon: Icon(IconComponent.nav_home,
-              color: PaletteColor.grey60, size: SpacingDimens.spacing20),
-          label: ""),
-      BottomNavigationBarItem(
-          icon: Icon(IconComponent.nav_notification,
-              color: PaletteColor.grey60, size: SpacingDimens.spacing20),
-          label: ""),
-      BottomNavigationBarItem(
-          icon: Icon(IconComponent.nav_profile,
-              color: PaletteColor.grey60, size: SpacingDimens.spacing20),
-          label: ""),
-    ];
 
-    final _bottomNavBar = BottomNavigationBar(
-        items: _bottomNavBarItems,
-        currentIndex: currentTab,
-        onTap: _onCurrentTab);
 
     var appBar = AppBarBack(
       ctx: context,
-      title: "Lacak Pesanan",
+      title: "LACAK PESANAN",
+      icon: IconComponent.shopping_cart,
+      colorPrima: PaletteColor.test1_primary,
+      colorSecond: PaletteColor.test1_primary80,
     );
 
     return Scaffold(
@@ -77,10 +102,11 @@ class _Test1PageState extends State<Test1Page> {
         children: <Widget>[
           Container(
             margin: EdgeInsets.only(
-              left: SpacingDimens.spacing72,
-              top: SpacingDimens.spacing80
+                left: SpacingDimens.spacing72, top: SpacingDimens.spacing80),
+            child: Image.asset(
+              'assets/Images/tracking.png',
+              height: 250,
             ),
-            child: Image.asset('assets/Images/tracking.png',height: 250,),
           ),
           Container(
             width: MediaQuery.of(context).size.width,
@@ -126,7 +152,7 @@ class _Test1PageState extends State<Test1Page> {
           ),
         ],
       ),
-      bottomNavigationBar: _bottomNavBar,
+      bottomNavigationBar: _bottomNav(),
     );
   }
 }
