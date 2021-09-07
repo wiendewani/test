@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ordo/component/AppBar/AppBarBack.dart';
 import 'package:ordo/theme/IconComponent.dart';
 import 'package:ordo/theme/PaletteColor.dart';
@@ -23,10 +24,8 @@ class _Test3PageState extends State<Test3Page> {
   }
 
   Widget _buttonComplain() {
-    return Positioned(
-      bottom: -30,
-      left: 0,
-      right: 0,
+    return Container(
+      margin: EdgeInsets.only(left: SpacingDimens.spacing24,right: SpacingDimens.spacing24,bottom: SpacingDimens.spacing32),
       child: Align(
         alignment: Alignment.bottomCenter,
         child: ElevatedButton(
@@ -34,14 +33,28 @@ class _Test3PageState extends State<Test3Page> {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(SpacingDimens.spacing8),
             ),
-            primary: PaletteColor.test3_primary_orange, // background
+            primary: PaletteColor.test3_primary_blue80, // background
           ),
           onPressed: () {},
-          child: Text(
-            'Semua',
-            style: TypographyStyle.mini.merge(
-              TextStyle(color: PaletteColor.primarybg, fontWeight: FontWeight.w500),
-            ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Expanded(
+                child: Container(
+                  margin: EdgeInsets.symmetric(vertical: SpacingDimens.spacing16),
+                  child: Text(
+                    'Complain',
+                    style: TypographyStyle.mini.merge(
+                      TextStyle(
+                          color: PaletteColor.primarybg,
+                          fontWeight: FontWeight.w500),
+                    ),
+                      textAlign: TextAlign.center
+                  ),
+                ),
+              ),
+              SvgPicture.asset('assets/Icons/arrow_narrow.svg'),
+            ],
           ),
         ),
       ),
@@ -81,10 +94,10 @@ class _Test3PageState extends State<Test3Page> {
     return Scaffold(
       backgroundColor: PaletteColor.test3_primarybg,
       appBar: appBar,
-      body: SingleChildScrollView(
-        child: Stack(
-          children: [
-            Container(
+      body: Stack(
+        children: [
+          SingleChildScrollView(
+            child: Container(
               margin: EdgeInsets.only(
                   top: SpacingDimens.spacing12,
                   left: SpacingDimens.spacing24,
@@ -100,9 +113,9 @@ class _Test3PageState extends State<Test3Page> {
                 ],
               ),
             ),
-            _buttonComplain()
-          ],
-        ),
+          ),
+          _buttonComplain()
+        ],
       ),
       bottomNavigationBar: _bottomNavBar,
     );

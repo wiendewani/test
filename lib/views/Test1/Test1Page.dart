@@ -76,7 +76,18 @@ class _Test1PageState extends State<Test1Page> {
       body: Stack(
         children: <Widget>[
           Container(
-            color: PaletteColor.test1_primary,
+            margin: EdgeInsets.only(
+              left: SpacingDimens.spacing72,
+              top: SpacingDimens.spacing80
+            ),
+            child: Image.asset('assets/Images/tracking.png',height: 250,),
+          ),
+          Container(
+            width: MediaQuery.of(context).size.width,
+            child: FittedBox(
+              child: Image.asset('assets/Images/map.png'),
+              fit: BoxFit.fill,
+            ),
           ),
           DraggableScrollableSheet(
             initialChildSize: 0.25,

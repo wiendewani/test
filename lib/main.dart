@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'Poppins',
       ),
-      home: Test3Page(),
+      home: Test1Page(),
     );
   }
 }
