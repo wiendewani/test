@@ -15,7 +15,6 @@ class Test3Page extends StatefulWidget {
 }
 
 class _Test3PageState extends State<Test3Page> {
-
   int _selectedIndex = 0;
 
   Widget _bottomNav() {
@@ -40,7 +39,6 @@ class _Test3PageState extends State<Test3Page> {
       },
       type: BottomNavigationBarType.fixed,
       items: [
-
         BottomNavigationBarItem(
             icon: Icon(IconComponent.nav_home,
                 color: PaletteColor.grey60, size: SpacingDimens.spacing20),
@@ -59,52 +57,77 @@ class _Test3PageState extends State<Test3Page> {
 
   Widget _buttonComplain() {
     return Container(
-      margin: EdgeInsets.only(left: SpacingDimens.spacing24,right: SpacingDimens.spacing24,bottom: SpacingDimens.spacing32),
+      margin: EdgeInsets.only(
+        left: SpacingDimens.spacing24,
+        right: SpacingDimens.spacing24,
+        bottom: SpacingDimens.spacing32,
+      ),
       child: Align(
         alignment: Alignment.bottomCenter,
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
+            padding: const EdgeInsets.all(0.0),
+            elevation: 0,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(SpacingDimens.spacing8),
+              borderRadius: BorderRadius.circular(SpacingDimens.spacing16),
             ),
-            primary: PaletteColor.test3_primary_blue80, // background
           ),
           onPressed: () {},
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Expanded(
-                child: Container(
-                  margin: EdgeInsets.symmetric(vertical: SpacingDimens.spacing16),
-                  child: Text(
-                    'Complain',
-                    style: TypographyStyle.mini.merge(
-                      TextStyle(
-                          color: PaletteColor.primarybg,
-                          fontWeight: FontWeight.w500),
+          child: Ink(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(SpacingDimens.spacing16),
+              gradient: LinearGradient(colors: [
+                PaletteColor.test3_primary_blue80,
+                PaletteColor.test3_primary_blue,
+              ]),
+            ),
+            child: Container(
+              padding: const EdgeInsets.all(10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: Container(
+                      margin: EdgeInsets.symmetric(
+                          vertical: SpacingDimens.spacing8),
+                      child: Text('Complain',
+                          style: TypographyStyle.mini.merge(
+                            TextStyle(
+                                color: PaletteColor.primarybg,
+                                fontWeight: FontWeight.w500),
+                          ),
+                          textAlign: TextAlign.center),
                     ),
-                      textAlign: TextAlign.center
                   ),
-                ),
+                  SvgPicture.asset('assets/Icons/arrow_narrow.svg'),
+                ],
               ),
-              SvgPicture.asset('assets/Icons/arrow_narrow.svg'),
-            ],
+            ),
           ),
         ),
       ),
     );
   }
 
+  Widget _backgroudOpocity() {
+    return Align(
+      alignment: Alignment.bottomCenter,
+      child: Container(
+        width: double.infinity,
+        height: SpacingDimens.spacing36,
+        color: PaletteColor.primarybg.withOpacity(0.7),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-
     var appBar = AppBarTest3(
       ctx: context,
       title: "FINANSIAL",
       colorPrima: PaletteColor.test3_primary_blue,
       colorSecond: PaletteColor.test3_primary_blue80,
       icon1: IconComponent.chart,
-      icon2: IconComponent.notification_bold,
     );
 
     return Scaffold(
@@ -130,7 +153,9 @@ class _Test3PageState extends State<Test3Page> {
               ),
             ),
           ),
-          _buttonComplain()
+          _backgroudOpocity(),
+          _buttonComplain(),
+
         ],
       ),
       bottomNavigationBar: _bottomNav(),

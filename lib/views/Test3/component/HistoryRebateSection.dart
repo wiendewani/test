@@ -13,17 +13,25 @@ class HistoryRebateSection extends StatelessWidget {
         children: [
           Row(
             children: [
-              CircleAvatar(
-                backgroundColor: PaletteColor.test3_primary_blue,
-                radius: 16,
-                child: IconButton(
-                  padding: EdgeInsets.zero,
-                  icon: Icon(
-                    IconComponent.history,
-                    size: 16,
+              Container(
+                decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    gradient: LinearGradient(colors: [
+                      PaletteColor.test3_primary_blue,
+                      PaletteColor.test3_primary_blue80,
+                    ], begin: Alignment.bottomLeft, end: Alignment.topRight)),
+                child: CircleAvatar(
+                  backgroundColor: Colors.transparent,
+                  radius: 16,
+                  child: IconButton(
+                    padding: EdgeInsets.zero,
+                    icon: Icon(
+                      IconComponent.history,
+                      size: 16,
+                    ),
+                    color: Colors.white,
+                    onPressed: () {},
                   ),
-                  color: Colors.white,
-                  onPressed: () {},
                 ),
               ),
               Container(
@@ -33,8 +41,8 @@ class HistoryRebateSection extends StatelessWidget {
                   children: [
                     Text(
                       "#REBATEC12021",
-                      style: TypographyStyle.caption1.merge(
-                          TextStyle(fontSize: 13.0, fontWeight: FontWeight.w500)),
+                      style: TypographyStyle.caption1.merge(TextStyle(
+                          fontSize: 13.0, fontWeight: FontWeight.w500)),
                     ),
                     Text(
                       "20 Juli 2021",
@@ -46,15 +54,17 @@ class HistoryRebateSection extends StatelessWidget {
             ],
           ),
           Container(
-            padding: EdgeInsets.symmetric(horizontal: SpacingDimens.spacing12, vertical: SpacingDimens.spacing4),
+            padding: EdgeInsets.symmetric(
+                horizontal: SpacingDimens.spacing12,
+                vertical: SpacingDimens.spacing4),
             decoration: BoxDecoration(
               color: PaletteColor.test3_primary_orange,
               borderRadius: BorderRadius.circular(SpacingDimens.spacing16),
             ),
             child: Text(
               "Rp 150.000",
-              style: TypographyStyle.paragraph1
-                  .merge(TextStyle(fontSize: 11, color: PaletteColor.primarybg)),
+              style: TypographyStyle.paragraph1.merge(
+                  TextStyle(fontSize: 11, color: PaletteColor.primarybg)),
             ),
           )
         ],
@@ -65,7 +75,12 @@ class HistoryRebateSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(SpacingDimens.spacing12 ),
+      padding: EdgeInsets.only(
+        top: SpacingDimens.spacing12,
+        left: SpacingDimens.spacing12,
+        right: SpacingDimens.spacing12,
+        bottom: SpacingDimens.spacing88,
+      ),
       decoration: BoxDecoration(
         color: PaletteColor.primarybg,
         borderRadius: BorderRadius.only(
@@ -81,16 +96,14 @@ class HistoryRebateSection extends StatelessWidget {
             style: TypographyStyle.heading1
                 .merge(TextStyle(color: PaletteColor.test3_primary_orange)),
           ),
-
           ListView.builder(
             physics: NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             itemCount: 6,
-            itemBuilder: (BuildContext context,index){
+            itemBuilder: (BuildContext context, index) {
               return _itemHistory();
             },
           ),
-
         ],
       ),
     );

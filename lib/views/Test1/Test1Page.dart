@@ -137,7 +137,7 @@ class _Test1PageState extends State<Test1Page> {
                         _toUp(),
                         ProfileSection(),
                         SizedBox(
-                          height: SpacingDimens.spacing36,
+                          height: SpacingDimens.spacing40,
                         ),
                         OrderStatusSection(),
                         SizedBox(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ordo/component/AppBar/RadiantGradientMask.dart';
 import 'package:ordo/theme/PaletteColor.dart';
 import 'package:ordo/theme/SpacingDimens.dart';
@@ -8,7 +9,6 @@ class AppBarTest3 extends StatelessWidget implements PreferredSizeWidget {
   final BuildContext ctx;
   final String title;
   final IconData icon1;
-  final IconData icon2;
   final Color colorPrima;
   final Color colorSecond;
 
@@ -16,7 +16,6 @@ class AppBarTest3 extends StatelessWidget implements PreferredSizeWidget {
     @required this.ctx,
     @required this.title,
     @required this.icon1,
-    @required this.icon2,
     @required this.colorPrima,
     @required this.colorSecond,
   });
@@ -49,7 +48,7 @@ class AppBarTest3 extends StatelessWidget implements PreferredSizeWidget {
           style: ElevatedButton.styleFrom(
             shape: CircleBorder(),
             padding: EdgeInsets.all(SpacingDimens.spacing4),
-            primary: colorPrima, // <-- Button color
+            primary: PaletteColor.test3_primary_orange, // <-- Button color
           ),
         ),
       ),
@@ -76,14 +75,7 @@ class AppBarTest3 extends StatelessWidget implements PreferredSizeWidget {
             padding: const EdgeInsets.only(
               right: SpacingDimens.spacing16,
             ),
-            child: RadiantGradientMask(
-              child: Icon(
-                icon2,
-                size: 20,
-              ),
-              colorEnd:  colorPrima,
-              colorStart:  colorSecond,
-            ),
+            child: SvgPicture.asset('assets/Icons/notification_test3.svg',width: 24,height: 24,)
           ),
         )
       ],
